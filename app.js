@@ -31,33 +31,33 @@ const data = {
       },
       
       "UDEMY": {
-        "payload": [
+        payload: [
           "GET / HTTP/1.1[crlf]Host: [host][crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Upgrade: websocket[crlf][crlf]",
           "pake yg no satu aja"
         ],
-        "proxy": [
+        proxy: [
           "www.udemy.com:80",
           "pake yng no satu aja ya"
         ]
       },
       
       "VIDI": {
-        "payload": [
+        payload: [
           "GET / HTTP/1.1[crlf]Host: [host][crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]",
           "PKE NO 1"
         ],
-        "proxy": [
+        proxy: [
           "104.18.1.196:80",
           "PKE NO 1"
         ]
       },
       
       "tiktok": {
-        "payload": [
+        payload: [
           "mode v2/vmmes",
           "PKE NO 1"
         ],
-        "proxy": [
+        proxy: [
           "api24-normal-alisg.tiktokv.com",
           "api24-normal-useast1a.tiktokv.com",
           "api24-normal.tiktokv.com"
@@ -65,34 +65,35 @@ const data = {
       },
       
       "UTS": {
-        "payload": [
+        payload: [
           "GET /cdn-cgi/trace HTTP/1.1[crlf]Host: ava.game.naver.com[crlf][crlf]BMOVE / [protocol][crlf]Host: [host][crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf][split]HTTP/1.1 200 OK[crlf][crlf]",
           "PKE NO 1"
         ],
-        "proxy": [
+        proxy: [
           "ava.game.naver.com sni graph.instagram.com",
           "PKE NO 1"
         ]
       },
       
       "IFLIX": {
-        "payload": [
+        payload: [
           "PAKE MODE SSL ONLY",
           "PAKE MODE V2/VMMES BUG DI V2"
         ],
-        "proxy": [
+        proxy: [
           "live.iflix.com",
           "162.159.138.78"
         ]
       }
     }
   },
+  
   // ===========================
-  //  AXIS
+  // AXIS
   // ===========================
   "AXIS": {
     bugs: {
-      "Tiktok": {
+      "EDUKASI": {
         payload: [
           "GET http://v16.tiktokcdn.com/ HTTP/1.1\nHost: v16.tiktokcdn.com",
           "CONNECT tiktok.com:443 HTTP/1.1\nHost: tiktok.com"
@@ -103,7 +104,7 @@ const data = {
         ]
       },
       
-      "Opok": {
+      "CONFERENCE": {
         payload: [
           "GET / HTTP/1.1\nHost: opok.axis.com",
           "CONNECT axis-opok.com:443 HTTP/1.1\nHost: axis-opok.com"
@@ -112,16 +113,60 @@ const data = {
           "104.17.33.9:443",
           "172.67.90.4:443"
         ]
+      },
+      
+      "GAME": {
+        payload: [
+          "GET http://v16.tiktokcdn.com/ HTTP/1.1\nHost: v16.tiktokcdn.com",
+          "CONNECT tiktok.com:443 HTTP/1.1\nHost: tiktok.com"
+        ],
+        proxy: [
+          "172.67.71.2:443",
+          "104.21.45.6:443"
+        ]
+      },
+      
+      "SOSMED": {
+        payload: [
+          "GET http://v16.tiktokcdn.com/ HTTP/1.1\nHost: v16.tiktokcdn.com",
+          "CONNECT tiktok.com:443 HTTP/1.1\nHost: tiktok.com"
+        ],
+        proxy: [
+          "172.67.71.2:443",
+          "104.21.45.6:443"
+        ]
+      },
+      
+      "MUSIK": {
+        payload: [
+          "GET http://v16.tiktokcdn.com/ HTTP/1.1\nHost: v16.tiktokcdn.com",
+          "CONNECT tiktok.com:443 HTTP/1.1\nHost: tiktok.com"
+        ],
+        proxy: [
+          "172.67.71.2:443",
+          "104.21.45.6:443"
+        ]
+      },
+      
+      "SPOTIFY": {
+        payload: [
+          "GET http://v16.tiktokcdn.com/ HTTP/1.1\nHost: v16.tiktokcdn.com",
+          "CONNECT tiktok.com:443 HTTP/1.1\nHost: tiktok.com"
+        ],
+        proxy: [
+          "172.67.71.2:443",
+          "104.21.45.6:443"
+        ]
       }
     }
   },
   
   // ===========================
-  //  TELKOMSEL
+  // TELKOMSEL
   // ===========================
   "TELKOMSEL": {
     bugs: {
-      "Tiktok": {
+      "GAMEMAX": {
         payload: [
           "GET http://v16.tiktokcdn.com/ HTTP/1.1\nHost: v16.tiktokcdn.com",
           "CONNECT tiktok.com:443 HTTP/1.1\nHost: tiktok.com"
@@ -132,7 +177,7 @@ const data = {
         ]
       },
       
-      "Opok": {
+      "ILMUPEDIA": {
         payload: [
           "GET / HTTP/1.1\nHost: opok.axis.com",
           "CONNECT axis-opok.com:443 HTTP/1.1\nHost: axis-opok.com"
@@ -146,11 +191,44 @@ const data = {
   },
   
   // ===========================
-  //  INDOSAT
+  // INDOSAT
   // ===========================
   "Indosat": {
     bugs: {
-      "Free": {
+      "APPS FUN 12GB": {
+        payload: [
+          "GET http://free.indosat.com/ HTTP/1.1\nHost: free.indosat.com",
+          "CONNECT free.indosat.com:443 HTTP/1.1"
+        ],
+        proxy: [
+          "104.21.88.3:443",
+          "104.21.99.7:443"
+        ]
+      },
+      
+      "APPS GAME": {
+        payload: [
+          "GET http://free.indosat.com/ HTTP/1.1\nHost: free.indosat.com",
+          "CONNECT free.indosat.com:443 HTTP/1.1"
+        ],
+        proxy: [
+          "104.21.88.3:443",
+          "104.21.99.7:443"
+        ]
+      },
+      
+      "APPS EDUKASI": {
+        payload: [
+          "GET http://free.indosat.com/ HTTP/1.1\nHost: free.indosat.com",
+          "CONNECT free.indosat.com:443 HTTP/1.1"
+        ],
+        proxy: [
+          "104.21.88.3:443",
+          "104.21.99.7:443"
+        ]
+      },
+      
+      "OPOK": {
         payload: [
           "GET http://free.indosat.com/ HTTP/1.1\nHost: free.indosat.com",
           "CONNECT free.indosat.com:443 HTTP/1.1"
@@ -162,36 +240,37 @@ const data = {
       }
     }
   },
-// ===========================
-//  BYU
-// ===========================
-"BYU": {
-  bugs: {
-    "OPOK": {
-      payload: [
-        "GET http://example-opok.com/ HTTP/1.1\nHost: example-opok.com",
-        "CONNECT example-opok.com:443 HTTP/1.1"
-      ],
-      proxy: [
-        "1.1.1.1:443",
-        "8.8.8.8:443"
-      ]
-    },
-
-    "GGWP": {
-      payload: [
-        "GET http://example-ggwp.com/ HTTP/1.1\nHost: example-ggwp.com",
-        "CONNECT example-ggwp.com:443 HTTP/1.1"
-      ],
-      proxy: [
-        "9.9.9.9:443",
-        "208.67.222.222:443"
-      ]
+  
+  // ===========================
+  // BYU
+  // ===========================
+  "byu": {
+    bugs: {
+      "Tiktok": {
+        payload: [
+          "GET http://v16.tiktokcdn.com/ HTTP/1.1\nHost: v16.tiktokcdn.com",
+          "CONNECT tiktok.com:443 HTTP/1.1\nHost: tiktok.com"
+        ],
+        proxy: [
+          "172.67.71.2:443",
+          "104.21.45.6:443"
+        ]
+      },
+      
+      "Opok": {
+        payload: [
+          "GET / HTTP/1.1\nHost: opok.axis.com",
+          "CONNECT axis-opok.com:443 HTTP/1.1\nHost: axis-opok.com"
+        ],
+        proxy: [
+          "104.17.33.9:443",
+          "172.67.90.4:443"
+        ]
+      }
     }
   }
-}
+  
 };
-// ===========================
 //  ELEMENT
 // ===========================
 const operatorSelect = document.getElementById("operator");
