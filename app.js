@@ -193,8 +193,8 @@ const data = {
 
       "ILMUPEDIA": {
         payload: [
-          "GET /cdn-cgi/trace HTTP/1.1[crlf]Host: beta.zoom.us[crlf][crlf]GET-RAY / HTTP/1.1[crlf]Host: [host][crlf]Connection: Upgrade[crlf]Content-Lenght: LUKI STORE[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]",
-          "CONNECT /cdn-cgi/trace HTTP/1.1[crlf]Host: ruangguru.com[crlf][crlf]GET-RAY / HTTP/1.1[crlf]Host: [host][crlf]Connection: Upgrade[crlf]User-Agent: @DINSTOREVpn [ua][crlf]Upgrade: websocket[crlf][crlf]"
+          "GET /cdn-cgi/trace HTTP/1.1[crlf]Host: beta.zoom.us[crlf][crlf]GET-RAY / HTTP/1.1[crlf]Host: [host][crlf]Connection: Upgrade[crlf]Content-Lenght: DINSTORE [crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]",
+          "CONNECT /cdn-cgi/trace HTTP/1.1[crlf]Host: ruangguru.com[crlf][crlf]GET-RAY / HTTP/1.1[crlf]Host: [host][crlf]Connection: Upgrade[crlf]User-Agent: @DINSTORE [ua][crlf]Upgrade: websocket[crlf][crlf]"
         ],
         proxy: [
           "ruangguru.com:443",
@@ -226,7 +226,7 @@ const data = {
 
       "APPS GAME 12GB": {
         payload: [
-          "POSTT WSS://poki.com/ HTTP/1.1[crlf]Host: www.pubgmobile.com[crlf]User-Agent: @XRESXCONFIG [ua][crlf][crlf][split][cr]PATCH / HTTP/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]"
+          "POSTT WSS://poki.com/ HTTP/1.1[crlf]Host: www.pubgmobile.com[crlf]User-Agent: DINSTORE [ua][crlf][crlf][split][cr]PATCH / HTTP/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]"
         ],
         proxy: [
           "104.18.62.229:80"
