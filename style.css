@@ -1,334 +1,347 @@
-/* =====================================
-   GOOGLE FONT & RESET
-===================================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    background: #04040a;
-    color: #e8f8ff;
-    line-height: 1.6;
+    background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+    color: #333;
     padding: 20px;
-
-    /* background cyber gradient */
-    background: radial-gradient(circle at top, #0c1030 0%, #02030a 70%);
 }
 
-/* =====================================
-   GLOBAL CYBER EFFECTS
-===================================== */
-.neon-border {
-    border: 1px solid #00eaff;
-    box-shadow: 0 0 10px #00eaff, 0 0 25px #00eaff;
+
+body>* {
+    max-width: 600px;
+    margin: auto;
 }
 
-.neon-text {
-    text-shadow: 0 0 8px #00eaff, 0 0 18px #00eaff;
-}
 
-/* =====================================
-   FAQ
-===================================== */
-.faq {
-    background: rgb(10, 15, 35);
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #0af2ff88;
-    box-shadow:
-        0 0 12px #00eaff55,
-        inset 0 0 20px #00eaff22;
-    margin-bottom: 25px;
-}
-
-.faq h2 {
-    color: #00eaff;
-    margin-bottom: 15px;
-    text-align: center;
-    text-shadow: 0 0 12px #00eaff;
-}
-
-.faq-item {
-    margin-bottom: 12px;
-    border-bottom: 1px solid #2a2f52;
-}
-
-.faq-question {
-    width: 100%;
-    background: #0e1230;
-    color: #fff;
-    padding: 12px 15px;
-    border: 1px solid #00c8ff55;
-    text-align: left;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 8px;
-    transition: 0.3s;
-    box-shadow: inset 0 0 10px #00eaff22;
-}
-
-.faq-question:hover {
-    background: #00eaff;
-    color: black;
-    box-shadow: 0 0 20px #00eaff;
-}
-
-.faq-answer {
-    display: none;
-    padding: 10px 15px;
-    color: #cbd6ff;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-/* =====================================
-   TITLE
-===================================== */
 h1.title {
     text-align: center;
-    font-size: 2.3rem;
     margin-bottom: 25px;
-    color: #00eaff;
-    text-shadow: 0 0 12px #00eaff, 0 0 25px #00eaff;
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* =====================================
-   BOX & SELECT
-===================================== */
+
+section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    border: none;
+    transition: 0.3s;
+}
+
+section:hover {
+    transform: translateY(-3px);
+}
+
 .box {
     margin-bottom: 15px;
-    text-align: center;
 }
 
 select {
     width: 100%;
-    max-width: 400px;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
-    border: 1px solid #00eaff55;
-    background: #0b0f29;
-    color: #dff7ff;
-    font-size: 16px;
-    box-shadow: inset 0 0 12px #00eaff33;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background: #f9fafc;
+    transition: 0.2s;
 }
 
-/* =====================================
-   OUTPUT BOX
-===================================== */
-.output-box {
-    margin-bottom: 20px;
-    text-align: center;
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    background: #fff;
 }
+
+
+
 
 textarea {
     width: 100%;
-    max-width: 500px;
-    height: 90px;
+    height: 100px;
+    padding: 12px;
     border-radius: 10px;
-    padding: 10px;
-    background: #0b0f29;
-    color: #e8faff;
-    border: 1px solid #00eaff55;
-    box-shadow: inset 0 0 12px #00eaff33;
-    margin-bottom: 10px;
+    border: 1px solid #ddd;
     resize: none;
-    font-size: 0.95rem;
+    margin-bottom: 10px;
+    font-size: 14px;
+    background: #f9fafc;
 }
+
 
 button {
     width: 100%;
-    padding: 15px;
-    background: linear-gradient(90deg, #00eaff, #7b2bff);
+    padding: 13px;
     border: none;
-    color: black;
-    font-weight: bold;
     border-radius: 10px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    color: white;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 17px;
     transition: 0.3s;
-    box-shadow:
-        0 0 12px #00eaff,
-        0 0 25px #7b2bff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 0 18px #00eaff,
-        0 0 35px #7b2bff;
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
 }
 
-/* =====================================
-   TUTORIAL
-===================================== */
-.tutorial {
-    background: #0b0f29;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #00eaff55;
-    box-shadow:
-        0 0 12px #00eaff55,
-        inset 0 0 20px #00eaff22;
-    margin-bottom: 25px;
-}
 
-.tutorial h2 {
-    color: #00eaff;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px #00eaff;
-}
-
-.tutorial h3 {
-    margin-top: 15px;
-    color: #34ffb4;
-    text-shadow: 0 0 12px #34ffb4;
-}
-
-.tutorial ol {
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-.tutorial ol li {
-    margin-bottom: 8px;
-}
-
-.tutorial ul li a {
-    color: #39ff14;
-    text-decoration: none;
-    font-weight: 500;
-    text-shadow: 0 0 10px #39ff1488;
-}
-
-.tutorial ul li a:hover {
-    text-decoration: underline;
-}
-
-/* =====================================
-   SHOP / BELI SSH
-===================================== */
-.shop {
-    background: #0b0f29;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #7b2bff66;
-    box-shadow: 0 0 15px #7b2bff55, inset 0 0 20px #7b2bff22;
-    margin-bottom: 20px;
-}
-
-.shop h2 {
-    color: #ff4f9f;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px #ff4f9f;
-}
-
-.shop-box {
-    background: linear-gradient(135deg, #111633, #1d2250);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #00eaff55;
-    box-shadow: 0 0 20px #00eaff22;
-}
-
-.shop-box p {
-    margin-bottom: 10px;
-    font-weight: 500;
-    color: #e8faff;
-}
-
-/* tombol shop */
-.btn-shop, .btn-admin {
+.btn-shop,
+.btn-admin,
+.group-channel a {
     display: inline-block;
-    padding: 10px 18px;
-    border-radius: 10px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #28a745, #34d058);
+    color: white;
     text-decoration: none;
-    font-weight: 600;
+    margin-top: 8px;
+    font-size: 14px;
     transition: 0.3s;
-    box-shadow: 0 0 12px #00eaff55;
-}
-
-.btn-shop {
-    color: #000;
-    background: linear-gradient(90deg, #00ffa6, #00eaff);
-}
-
-.btn-shop:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px #00ffa6, 0 0 30px #00eaff;
 }
 
 .btn-admin {
-    background: linear-gradient(90deg, #ff3b85, #7b2bff);
-    color: white;
-}
-
-.btn-admin:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px #ff3b85, 0 0 30px #7b2bff;
-}
-
-/* =====================================
-   GROUP CHANNEL
-===================================== */
-.group-channel {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    background: linear-gradient(90deg, #17a2b8, #20c997);
 }
 
 .group-channel a {
-    flex: 1 1 auto;
-    text-align: center;
-    padding: 10px 12px;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #39ff14, #00eaff);
-    color: black;
-    font-weight: 500;
-    text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 0 15px #00eaff55;
+    background: linear-gradient(90deg, #6c757d, #868e96);
+    margin-right: 6px;
 }
 
+.btn-shop:hover,
+.btn-admin:hover,
 .group-channel a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 25px #00eaff;
 }
 
-/* =====================================
-   FOOTER FLOATING
-===================================== */
+
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     text-align: center;
-    padding: 12px 10px;
-    background: rgba(10, 15, 35, 0.75);
-    color: #d7faff;
-    font-size: 0.95rem;
-    backdrop-filter: blur(5px);
-    border-top: 1px solid #00eaff44;
-    box-shadow: 0 0 10px #00eaff55;
-    z-index: 999;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #777;
 }
 
-.footer b {
-    color: #00eaff;
+
+
+.box {
+    margin: 25px auto;
+    text-align: center;
 }
 
-/* =====================================
-   RESPONSIVE
-===================================== */
-@media (max-width: 600px) {
-    select, textarea {
-        width: 100%;
-    }
+
+.btn-tutorial {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-tutorial:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tutorial-page {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  margin-top: 20px;
+  text-align: center;
+  
+}
+
+.tutorial-page h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #222;
+}
+
+
+.tutorial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.btn-tutorial-item {
+  display: block;
+  padding: 15px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  transition: 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+.btn-tutorial-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+
+.back-box {
+  margin-top: 25px;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  background: #6c757d;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background: #495057;
+}
+
+
+.wa-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
+}
+.ssh-float {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    text-align: center;
+    
+}
+
+.ssh-float h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #222;
+}
+
+
+.ssh-float {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.btn-ssh-float {
+    display: block;
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.btn-ssh-float-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+.back-box {
+    margin-top: 25px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    background: #6c757d;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background: #495057;
+}
+
+.box {
+    margin: 25px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center; 
+    gap: 15px; 
+    flex-wrap: wrap; 
+}
+
+.btn-tutorial,
+.btn-ssh-float {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+.btn-tutorial {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+}
+
+.btn-ssh-float {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+
+.btn-tutorial:hover,
+.btn-ssh-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
