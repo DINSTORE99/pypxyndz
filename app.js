@@ -13,7 +13,9 @@ const data = {
           "104.17.70.206:80",
           "ablink.alerts.udemy.com",
           "104.17.3.81:80",
-          "104.22.4.240:80"
+          "104.22.4.240:80",
+          "inside165.udemy.com:8880",
+          "chat.sociomile.com:80"
         ],
         SNI: []
       },
@@ -196,7 +198,10 @@ const data = {
         ],
         proxy: [
           "ruangguru.com:443",
-          "v2ray 104.20.28.42"
+          "v2ray 104.20.28.42",
+          "104.16.182.114",
+          "104.18.24.139:443",
+          "104.20.28.42"
         ],
         SNI: ["PAKE HOST SSH"]
       }
