@@ -301,6 +301,32 @@ const SNIOutput = document.getElementById("SNIOutput"); // FIX!!
 
 
 // ===========================
+//  PIN SYSTEM
+// ===========================
+
+const ADMIN_PIN = "RAMADHAN";
+
+function checkPin() {
+  const input = document.getElementById("pinInput").value;
+
+  if (input === ADMIN_PIN) {
+    document.getElementById("lockScreen").style.display = "none";
+    sessionStorage.setItem("akses", "true");
+  } else {
+    document.getElementById("errorText").innerText = "❌ MASUKAN PIN!";
+  }
+}
+
+window.onload = function () {
+  if (sessionStorage.getItem("akses") === "true") {
+    document.getElementById("lockScreen").style.display = "none";
+  }
+};
+
+
+
+
+// ===========================
 //  LOAD OPERATOR
 // ===========================
 function loadOperators() {
