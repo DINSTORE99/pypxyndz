@@ -110,7 +110,9 @@ const data = {
           "104.17.70.206:80",
           "ablink.alerts.udemy.com",
           "104.17.3.81:80",
-          "104.22.4.240:80"
+          "104.22.4.240:80",
+          "inside165.udemy.com:8880",
+          "chat.sociomile.com:80"
         ],
         SNI: []
       },
