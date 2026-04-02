@@ -305,29 +305,47 @@ const proxyOutput = document.getElementById("proxyOutput");
 const SNIOutput = document.getElementById("SNIOutput"); // FIX!!
 
 
-// ===========================
-//  PIN SYSTEM
-// ===========================
-
 const ADMIN_PIN = "DN";
 
 function checkPin() {
-  const input = document.getElementById("pinInput").value;
+  const inputEl = document.getElementById("pinInput");
+  const errorEl = document.getElementById("errorText");
+  const lockScreen = document.getElementById("lockScreen");
+
+  if (!inputEl || !errorEl || !lockScreen) return;
+
+  const input = inputEl.value.trim();
+
+  if (input === "") {
+    errorEl.innerText = "❌ PIN tidak boleh kosong!";
+    return;
+  }
 
   if (input === ADMIN_PIN) {
-    document.getElementById("lockScreen").style.display = "none";
+    lockScreen.style.display = "none";
     sessionStorage.setItem("akses", "true");
   } else {
-    document.getElementById("errorText").innerText = "❌ MASUKAN PIN!";
+    errorEl.innerText = "❌ PIN salah!";
   }
 }
 
-window.onload = function () {
-  if (sessionStorage.getItem("akses") === "true") {
-    document.getElementById("lockScreen").style.display = "none";
-  }
-};
+// tekan ENTER biar langsung login
+document.addEventListener("DOMContentLoaded", () => {
+  const inputEl = document.getElementById("pinInput");
 
+  if (sessionStorage.getItem("akses") === "true") {
+    const lockScreen = document.getElementById("lockScreen");
+    if (lockScreen) lockScreen.style.display = "none";
+  }
+
+  if (inputEl) {
+    inputEl.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        checkPin();
+      }
+    });
+  }
+});
 
 
 
