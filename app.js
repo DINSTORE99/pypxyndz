@@ -309,7 +309,7 @@ const SNIOutput = document.getElementById("SNIOutput"); // FIX!!
 //  PIN SYSTEM
 // ===========================
 
-const ADMIN_PIN = "DN21";
+const ADMIN_PIN = "DN";
 
 function checkPin() {
   const input = document.getElementById("pinInput").value;
