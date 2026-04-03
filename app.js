@@ -203,7 +203,7 @@ const data = {
           "v2ray 104.20.28.42",
           "104.16.182.114",
           "104.18.24.139:443",
-          "104.20.28.42"
+          "104.20.28.42",
           "104.18.24.139:443",
           "104.16.182.114:443",
           "ads.ruangguru.com"
@@ -305,7 +305,7 @@ const proxyOutput = document.getElementById("proxyOutput");
 const SNIOutput = document.getElementById("SNIOutput"); // FIX!!
 
 
-const ADMIN_PIN = "DN";
+const ADMIN_PIN = "STORE21";
 
 function checkPin() {
   const inputEl = document.getElementById("pinInput");
