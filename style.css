@@ -1,398 +1,625 @@
+/* =========================================
+   RESET
+========================================= */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
-    color: #333;
-    padding: 20px;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(0, 255, 170, 0.08),
+      transparent 35%
+    ),
+    #050505;
+  color: #f5f5f5;
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+  padding: 20px;
 }
 
 
-body>* {
-    max-width: 600px;
-    margin: auto;
+/* =========================================
+   BACKGROUND GRID
+========================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 35px 35px;
 }
 
 
-h1.title {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 26px;
-    font-weight: 700;
-    background: linear-gradient(90deg, #007bff, #00c6ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
 }
 
 
-section {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-    border: none;
-    transition: 0.3s;
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  text-align: center;
+  margin: 15px 0 28px;
 }
 
-section:hover {
-    transform: translateY(-3px);
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 8px rgba(0, 255, 170, 0.45),
+    0 0 25px rgba(0, 255, 170, 0.15);
 }
+
+.subtitle {
+  margin-top: 8px;
+  color: #858585;
+  font-size: 14px;
+}
+
+
+/* =========================================
+   BOX
+========================================= */
 
 .box {
-    margin-bottom: 15px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 20, 20, 0.95),
+      rgba(10, 10, 10, 0.95)
+    );
+
+  border: 1px solid #242424;
+  border-radius: 15px;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35);
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+.box:hover {
+  border-color: rgba(0, 255, 170, 0.3);
+
+  box-shadow:
+    0 8px 35px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 255, 170, 0.04);
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.box label {
+  display: block;
+  margin-bottom: 9px;
+
+  color: #bcbcbc;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
 select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 14px;
-    background: #f9fafc;
-    transition: 0.2s;
+  width: 100%;
+  min-height: 50px;
+
+  padding: 0 15px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  color: #ffffff;
+  background:
+    linear-gradient(
+      145deg,
+      #151515,
+      #0b0b0b
+    );
+
+  border: 1px solid #303030;
+  border-radius: 11px;
+
+  outline: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Arrow */
+
+.box {
+  position: relative;
+}
+
+.box select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #00ffaa 50%),
+    linear-gradient(135deg, #00ffaa 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 20px) 22px,
+    calc(100% - 14px) 22px;
+
+  background-size:
+    6px 6px,
+    6px 6px;
+
+  background-repeat: no-repeat;
+}
+
+select:hover {
+  border-color: #00b982;
 }
 
 select:focus {
-    border-color: #007bff;
-    outline: none;
-    background: #fff;
+  border-color: #00ffaa;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 255, 170, 0.08),
+    0 0 18px rgba(0, 255, 170, 0.08);
+}
+
+select option {
+  background: #101010;
+  color: #ffffff;
 }
 
 
+/* =========================================
+   OUTPUT BOX
+========================================= */
 
+.output-box {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #111111,
+      #080808
+    );
+
+  border: 1px solid #242424;
+  border-radius: 15px;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   OUTPUT HEADER
+========================================= */
+
+.output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  color: #00ffaa;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   TEXTAREA
+========================================= */
 
 textarea {
-    width: 100%;
-    height: 100px;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    resize: none;
-    margin-bottom: 10px;
-    font-size: 14px;
-    background: #f9fafc;
+  width: 100%;
+  min-height: 145px;
+
+  display: block;
+
+  resize: vertical;
+
+  padding: 14px;
+
+  color: #eaeaea;
+  background: #050505;
+
+  border: 1px solid #292929;
+  border-radius: 11px;
+
+  outline: none;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  overflow-x: auto;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+textarea:focus {
+  border-color: #00ffaa;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 255, 170, 0.06);
+}
+
+textarea::selection {
+  background: rgba(0, 255, 170, 0.25);
 }
 
 
+/* =========================================
+   BUTTON
+========================================= */
+
 button {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #007bff, #00c6ff);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  width: 100%;
+  min-height: 48px;
+
+  margin-top: 11px;
+
+  border: 0;
+  border-radius: 11px;
+
+  color: #00150e;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00ffaa,
+      #00d995
+    );
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 20px rgba(0, 255, 170, 0.12);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
 }
 
 button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 7px 25px rgba(0, 255, 170, 0.2);
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 
-.btn-shop,
-.btn-admin,
-.group-channel a {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #28a745, #34d058);
-    color: white;
-    text-decoration: none;
-    margin-top: 8px;
-    font-size: 14px;
-    transition: 0.3s;
-}
+/* =========================================
+   ACTIONS
+========================================= */
 
-.btn-admin {
-    background: linear-gradient(90deg, #17a2b8, #20c997);
-}
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 
-.group-channel a {
-    background: linear-gradient(90deg, #6c757d, #868e96);
-    margin-right: 6px;
-}
-
-.btn-shop:hover,
-.btn-admin:hover,
-.group-channel a:hover {
-    transform: translateY(-2px);
-}
-
-
-.footer {
-    text-align: center;
-    padding: 20px 0;
-    font-size: 14px;
-    color: #777;
-}
-
-
-
-.box {
-    margin: 25px auto;
-    text-align: center;
-}
-
-
-.btn-tutorial {
-    display: inline-block;
-    padding: 14px 28px;
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 30px;
-    transition: 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-
-.btn-tutorial:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.tutorial-page {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   margin-top: 20px;
-  text-align: center;
-  
-}
-
-.tutorial-page h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  color: #222;
 }
 
 
-.tutorial-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-
-.btn-tutorial-item {
-  display: block;
-  padding: 15px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #fff;
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  transition: 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-
-
-.btn-tutorial-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-
-.back-box {
-  margin-top: 25px;
-}
-
-.btn-back {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  background: #6c757d;
-  color: white;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn-back:hover {
-  background: #495057;
-}
-
-
-.wa-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    line-height: 60px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.wa-float:hover {
-    transform: scale(1.1);
-    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
-}
-.ssh-float {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    margin-top: 20px;
-    text-align: center;
-    
-}
-
-.ssh-float h2 {
-    margin-bottom: 20px;
-    font-size: 22px;
-    color: #222;
-}
-
-
-.ssh-float {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-
-.btn-ssh-float {
-    display: block;
-    padding: 15px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    transition: 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-
-.btn-ssh-float-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-
-.back-box {
-    margin-top: 25px;
-}
-
-.btn-back {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    background: #6c757d;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-back:hover {
-    background: #495057;
-}
-
-.box {
-    margin: 25px auto;
-    text-align: center;
-    display: flex;
-    justify-content: center; 
-    gap: 15px; 
-    flex-wrap: wrap; 
-}
+/* =========================================
+   ACTION LINKS
+========================================= */
 
 .btn-tutorial,
 .btn-ssh-float {
-    display: inline-block;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    transition: 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 15px;
+
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
 }
 
+
+/* Tutorial */
 
 .btn-tutorial {
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
+  color: #ffffff;
+
+  background: #111111;
+
+  border: 1px solid #303030;
 }
+
+.btn-tutorial:hover {
+  border-color: #00ffaa;
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 170, 0.08);
+
+  transform: translateY(-2px);
+}
+
+
+/* Order SSH */
 
 .btn-ssh-float {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+  color: #050505;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00ffaa,
+      #00d995
+    );
+
+  border: 1px solid #00ffaa;
+
+  box-shadow:
+    0 5px 20px rgba(0, 255, 170, 0.1);
 }
 
-
-.btn-tutorial:hover,
 .btn-ssh-float:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 28px rgba(0, 255, 170, 0.2);
 }
-/* ================= PIN LOCK ================= */
-#lockScreen {
+
+
+/* =========================================
+   WHATSAPP FLOAT
+========================================= */
+
+.wa-float {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000000e6;
+
+  right: 20px;
+  bottom: 20px;
+
+  width: 55px;
+  height: 55px;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 9999;
+  justify-content: center;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #20d66b,
+      #0b9f4b
+    );
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  font-size: 24px;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.5);
+
+  z-index: 50;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.pin-box {
-  background: #111;
-  padding: 30px;
-  border-radius: 15px;
+.wa-float:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 10px 35px rgba(32, 214, 107, 0.25);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  padding: 30px 10px 10px;
+
   text-align: center;
-  width: 90%;
-  max-width: 350px;
+
+  color: #666666;
+
+  font-size: 12px;
 }
 
-.pin-box h2 {
-  margin-bottom: 15px;
-  color: #00eaff;
+.footer strong {
+  color: #00ffaa;
 }
 
-.pin-box input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  margin-bottom: 10px;
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 13px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .header {
+    margin-top: 8px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 27px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .box {
+    padding: 14px;
+    border-radius: 13px;
+  }
+
+  .output-box {
+    padding: 14px;
+    border-radius: 13px;
+  }
+
+  select {
+    min-height: 48px;
+    font-size: 13px;
+  }
+
+  textarea {
+    min-height: 135px;
+    font-size: 12px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .wa-float {
+    width: 52px;
+    height: 52px;
+
+    right: 15px;
+    bottom: 15px;
+  }
+
 }
 
-.pin-box button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  background: #00eaff;
-  font-weight: bold;
-  cursor: pointer;
+
+/* =========================================
+   VERY SMALL SCREEN
+========================================= */
+
+@media (max-width: 360px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .box,
+  .output-box {
+    padding: 12px;
+  }
+
+  textarea {
+    font-size: 11px;
+  }
+
 }
 
-#errorText {
-  margin-top: 10px;
-  color: red;
-  font-size: 14px;
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
 }
