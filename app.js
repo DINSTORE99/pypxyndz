@@ -1,6 +1,6 @@
 const data = {
   // ===========================
-  //  XL
+  // XL
   // ===========================
   "🔵XL": {
     bugs: {
@@ -40,7 +40,7 @@ const data = {
         ],
         proxy: [
           "www.udemy.com:80",
-          "pake yng no satu aja ya"
+          "pake yng no satu aja"
         ],
         SNI: []
       },
@@ -208,7 +208,9 @@ const data = {
           "104.16.182.114:443",
           "ads.ruangguru.com"
         ],
-        SNI: ["PAKE HOST SSH"]
+        SNI: [
+          "PAKE HOST SSH"
+        ]
       }
     }
   },
@@ -284,194 +286,329 @@ const data = {
         proxy: [
           "space.byu.id:443"
         ],
-        SNI: ["SNI PKE HOST SSH"]
+        SNI: [
+          "SNI PKE HOST SSH"
+        ]
       }
     }
   }
 };
 
 
+// =======================================
+// ELEMENT SESUAI HTML
+// =======================================
 
-// =======================================
-//   ELEMENT SESUAI HTML (Sudah Fix)
-// =======================================
 const operatorSelect = document.getElementById("operator");
 const bugSelect = document.getElementById("bug");
 const payloadList = document.getElementById("payloadList");
 const proxyList = document.getElementById("proxyList");
-const sniList = document.getElementById("SNIList");     // FIX!!
+const sniList = document.getElementById("SNIList");
+
 const payloadOutput = document.getElementById("payloadOutput");
 const proxyOutput = document.getElementById("proxyOutput");
-const SNIOutput = document.getElementById("SNIOutput"); // FIX!!
+const SNIOutput = document.getElementById("SNIOutput");
 
 
-const ADMIN_PIN = "STORE21";
+// =======================================
+// LOAD OPERATOR
+// =======================================
 
-function checkPin() {
-  const inputEl = document.getElementById("pinInput");
-  const errorEl = document.getElementById("errorText");
-  const lockScreen = document.getElementById("lockScreen");
+function loadOperators() {
 
-  if (!inputEl || !errorEl || !lockScreen) return;
+  operatorSelect.innerHTML =
+    '<option value="">Pilih Operator</option>';
 
-  const input = inputEl.value.trim();
+  Object.keys(data).forEach(operator => {
 
-  if (input === "") {
-    errorEl.innerText = "❌ PIN tidak boleh kosong!";
+    const option = document.createElement("option");
+
+    option.value = operator;
+    option.textContent = operator;
+
+    operatorSelect.appendChild(option);
+
+  });
+
+}
+
+
+// =======================================
+// RESET FORM
+// =======================================
+
+function resetBugData() {
+
+  bugSelect.innerHTML =
+    '<option value="">Pilih Bug / Operator</option>';
+
+  payloadList.innerHTML =
+    '<option value="">Pilih Payload</option>';
+
+  proxyList.innerHTML =
+    '<option value="">Pilih Proxy</option>';
+
+  sniList.innerHTML =
+    '<option value="">Pilih SNI</option>';
+
+  payloadOutput.value =
+    "Payload akan tampil di sini";
+
+  proxyOutput.value =
+    "Proxy akan tampil di sini";
+
+  SNIOutput.value =
+    "SNI akan tampil di sini";
+
+}
+
+
+// =======================================
+// OPERATOR CHANGE
+// =======================================
+
+operatorSelect.addEventListener("change", () => {
+
+  resetBugData();
+
+  const operator = operatorSelect.value;
+
+  if (!operator) return;
+
+  const bugs = data[operator]?.bugs;
+
+  if (!bugs) return;
+
+  Object.keys(bugs).forEach(bug => {
+
+    const option = document.createElement("option");
+
+    option.value = bug;
+    option.textContent = bug;
+
+    bugSelect.appendChild(option);
+
+  });
+
+});
+
+
+// =======================================
+// BUG CHANGE
+// =======================================
+
+bugSelect.addEventListener("change", () => {
+
+  payloadList.innerHTML =
+    '<option value="">Pilih Payload</option>';
+
+  proxyList.innerHTML =
+    '<option value="">Pilih Proxy</option>';
+
+  sniList.innerHTML =
+    '<option value="">Pilih SNI</option>';
+
+  payloadOutput.value =
+    "Payload akan tampil di sini";
+
+  proxyOutput.value =
+    "Proxy akan tampil di sini";
+
+  SNIOutput.value =
+    "SNI akan tampil di sini";
+
+  const operator = operatorSelect.value;
+  const bug = bugSelect.value;
+
+  if (!operator || !bug) return;
+
+  const selected = data[operator]?.bugs?.[bug];
+
+  if (!selected) return;
+
+
+  // PAYLOAD
+  selected.payload.forEach((payload, index) => {
+
+    const option = document.createElement("option");
+
+    option.value = index;
+    option.textContent = `Payload ${index + 1}`;
+
+    payloadList.appendChild(option);
+
+  });
+
+
+  // PROXY
+  selected.proxy.forEach((proxy, index) => {
+
+    const option = document.createElement("option");
+
+    option.value = index;
+    option.textContent = `Proxy ${index + 1}`;
+
+    proxyList.appendChild(option);
+
+  });
+
+
+  // SNI
+  selected.SNI.forEach((sni, index) => {
+
+    const option = document.createElement("option");
+
+    option.value = index;
+    option.textContent = `SNI ${index + 1}`;
+
+    sniList.appendChild(option);
+
+  });
+
+});
+
+
+// =======================================
+// PAYLOAD CHANGE
+// =======================================
+
+payloadList.addEventListener("change", () => {
+
+  const operator = operatorSelect.value;
+  const bug = bugSelect.value;
+  const index = payloadList.value;
+
+  if (
+    !operator ||
+    !bug ||
+    index === ""
+  ) {
     return;
   }
 
-  if (input === ADMIN_PIN) {
-    lockScreen.style.display = "none";
-    sessionStorage.setItem("akses", "true");
-  } else {
-    errorEl.innerText = "❌ PIN salah!";
-  }
-}
+  const selected = data[operator]?.bugs?.[bug];
 
-// tekan ENTER biar langsung login
-document.addEventListener("DOMContentLoaded", () => {
-  const inputEl = document.getElementById("pinInput");
+  if (!selected) return;
 
-  if (sessionStorage.getItem("akses") === "true") {
-    const lockScreen = document.getElementById("lockScreen");
-    if (lockScreen) lockScreen.style.display = "none";
-  }
+  payloadOutput.value =
+    selected.payload[index] ?? "";
 
-  if (inputEl) {
-    inputEl.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        checkPin();
-      }
-    });
-  }
 });
 
 
+// =======================================
+// PROXY CHANGE
+// =======================================
 
-// ===========================
-//  LOAD OPERATOR
-// ===========================
-function loadOperators() {
-  Object.keys(data).forEach(op => {
-    operatorSelect.innerHTML += `<option value="${op}">${op}</option>`;
-  });
-}
-
-
-// ===========================
-//  LOAD BUG SESUAI OPERATOR
-// ===========================
-operatorSelect.addEventListener("change", () => {
-  bugSelect.innerHTML = `<option value="">Pilih Bug / Operator</option>`;
-  payloadList.innerHTML = `<option value="">Pilih Payload</option>`;
-  proxyList.innerHTML = `<option value="">Pilih Proxy</option>`;
-  sniList.innerHTML = `<option value="">Pilih SNI</option>`;
-
-  payloadOutput.value = "Payload akan tampil di sini";
-  proxyOutput.value = "Proxy akan tampil di sini";
-  SNIOutput.value = "SNI akan tampil di sini";
-
-  const op = operatorSelect.value;
-  if (!op) return;
-
-  Object.keys(data[op].bugs).forEach(bug => {
-    bugSelect.innerHTML += `<option value="${bug}">${bug}</option>`;
-  });
-});
-
-
-// ===========================
-//  LOAD PAYLOAD + PROXY + SNI
-// ===========================
-bugSelect.addEventListener("change", () => {
-  payloadList.innerHTML = `<option value="">Pilih Payload</option>`;
-  proxyList.innerHTML = `<option value="">Pilih Proxy</option>`;
-  sniList.innerHTML = `<option value="">Pilih SNI</option>`;
-
-  payloadOutput.value = "Payload akan tampil di sini";
-  proxyOutput.value = "Proxy akan tampil di sini";
-  SNIOutput.value = "SNI akan tampil di sini";
-
-  const op = operatorSelect.value;
-  const bug = bugSelect.value;
-
-  if (!op || !bug) return;
-
-  data[op].bugs[bug].payload.forEach((p, i) => {
-    payloadList.innerHTML += `<option value="${i}">Payload ${i + 1}</option>`;
-  });
-
-  data[op].bugs[bug].proxy.forEach((px, i) => {
-    proxyList.innerHTML += `<option value="${i}">Proxy ${i + 1}</option>`;
-  });
-
-  data[op].bugs[bug].SNI.forEach((s, i) => {
-    sniList.innerHTML += `<option value="${i}">SNI ${i + 1}</option>`;
-  });
-});
-
-
-// ===========================
-//  TAMPILKAN PAYLOAD
-// ===========================
-payloadList.addEventListener("change", () => {
-  const op = operatorSelect.value;
-  const bug = bugSelect.value;
-  const idx = payloadList.value;
-
-  if (idx === "") return;
-
-  payloadOutput.value = data[op].bugs[bug].payload[idx];
-});
-
-
-// ===========================
-//  TAMPILKAN PROXY
-// ===========================
 proxyList.addEventListener("change", () => {
-  const op = operatorSelect.value;
+
+  const operator = operatorSelect.value;
   const bug = bugSelect.value;
-  const idx = proxyList.value;
+  const index = proxyList.value;
 
-  if (idx === "") return;
+  if (
+    !operator ||
+    !bug ||
+    index === ""
+  ) {
+    return;
+  }
 
-  proxyOutput.value = data[op].bugs[bug].proxy[idx];
+  const selected = data[operator]?.bugs?.[bug];
+
+  if (!selected) return;
+
+  proxyOutput.value =
+    selected.proxy[index] ?? "";
+
 });
 
 
-// ===========================
-//  TAMPILKAN SNI (FIX!!)
-// ===========================
+// =======================================
+// SNI CHANGE
+// =======================================
+
 sniList.addEventListener("change", () => {
-  const op = operatorSelect.value;
+
+  const operator = operatorSelect.value;
   const bug = bugSelect.value;
-  const idx = sniList.value;
+  const index = sniList.value;
 
-  if (idx === "") return;
+  if (
+    !operator ||
+    !bug ||
+    index === ""
+  ) {
+    return;
+  }
 
-  SNIOutput.value = data[op].bugs[bug].SNI[idx];
+  const selected = data[operator]?.bugs?.[bug];
+
+  if (!selected) return;
+
+  SNIOutput.value =
+    selected.SNI[index] ?? "";
+
 });
 
 
-// ===========================
-//  COPY FIXED
-// ===========================
-function copyPayload() {
-  payloadOutput.select();
-  document.execCommand("copy");
+// =======================================
+// COPY HELPER
+// =======================================
+
+async function copyText(element) {
+
+  if (!element) return;
+
+  const text = element.value;
+
+  if (!text) return;
+
+  try {
+
+    await navigator.clipboard.writeText(text);
+
+  } catch (error) {
+
+    element.select();
+    element.setSelectionRange(0, 999999);
+
+    document.execCommand("copy");
+
+  }
+
 }
+
+
+// =======================================
+// COPY PAYLOAD
+// =======================================
+
+function copyPayload() {
+  copyText(payloadOutput);
+}
+
+
+// =======================================
+// COPY PROXY
+// =======================================
 
 function copyProxy() {
-  proxyOutput.select();
-  document.execCommand("copy");
+  copyText(proxyOutput);
 }
+
+
+// =======================================
+// COPY SNI
+// =======================================
 
 function copySNI() {
-  SNIOutput.select();
-  document.execCommand("copy");
+  copyText(SNIOutput);
 }
 
 
-// START
+// =======================================
+// START APPLICATION
+// =======================================
+
 loadOperators();
