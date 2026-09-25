@@ -4,86 +4,295 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payload & Proxy</title>
+
+  <meta
+    name="description"
+    content="Payload dan Proxy Generator DIN STORE"
+  >
+
+  <meta
+    name="theme-color"
+    content="#000000"
+  >
+
+  <title>Payload & Proxy — DIN STORE</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- ================= PIN LOCK SCREEN ================= -->
-<div id="lockScreen">
-  <div class="pin-box">
-    <h2>🔐 Masukkan PIN</h2>
-    <input type="password" id="pinInput" placeholder="Masukkan PIN Admin">
-    <button onclick="checkPin()">Masuk</button>
-    <p id="errorText"></p>
-  </div>
-</div>
-  
-  <h1 class="title">Payload & Proxy</h1>
-  
-  
-  <div class="box">
-    <select id="operator">
-      <option value="">Pilih Operator</option>
-    </select>
-  </div>
-  
-  <div class="box">
-    <select id="bug">
-      <option value="">Pilih Bug</option>
-    </select>
-  </div>
-  
-  <div class="box">
-    <select id="payloadList">
-      <option value="">Pilih Payload</option>
-    </select>
-  </div>
-  
-  <div class="box">
-    <select id="proxyList">
-      <option value="">Pilih Proxy</option>
-    </select>
-  </div>
-  
-  <div class="box">
-    <select id="SNIList">
-      <option value="">Pilih SNI</option>
-    </select>
-  </div>
-  
-  
-  <div class="output-box">
-    <textarea id="payloadOutput" readonly>Payload akan tampil di sini</textarea>
-    <button onclick="copyPayload()">Salin Payload</button>
-  </div>
-  
-  <div class="output-box">
-    <textarea id="proxyOutput" readonly>Proxy akan tampil di sini</textarea>
-    <button onclick="copyProxy()">Salin Proxy</button>
-  </div>
-  
-  <div class="output-box">
-    <textarea id="SNIOutput" readonly>SNI akan tampil di sini</textarea>
-    <button onclick="copySNI()">Salin SNI</button>
-  </div>
-  
-  <div class="box">
-    <a href="tutorial.html" class="btn-tutorial">🎥 Lihat Video Tutorial</a>
-    <a href="https://order.vpn.dinn.my.id" class="btn-ssh-float" target="_blank">🚀 ORDER SSH</a>
-  </div>
-  
-  <a href="https://wa.me/6287776581216" class="wa-float" target="_blank">
+
+  <!-- =========================================
+       MAIN CONTAINER
+  ========================================== -->
+
+  <main class="container">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <h1 class="title">
+        Payload & Proxy
+      </h1>
+
+      <p class="subtitle">
+        Pilih operator, bug, payload, proxy, dan SNI
+      </p>
+
+    </header>
+
+
+    <!-- =========================================
+         OPERATOR
+    ========================================== -->
+
+    <section class="box">
+
+      <label for="operator">
+        Operator
+      </label>
+
+      <select id="operator">
+        <option value="">
+          Pilih Operator
+        </option>
+      </select>
+
+    </section>
+
+
+    <!-- =========================================
+         BUG
+    ========================================== -->
+
+    <section class="box">
+
+      <label for="bug">
+        Bug / Host
+      </label>
+
+      <select id="bug">
+        <option value="">
+          Pilih Bug / Operator
+        </option>
+      </select>
+
+    </section>
+
+
+    <!-- =========================================
+         PAYLOAD
+    ========================================== -->
+
+    <section class="box">
+
+      <label for="payloadList">
+        Payload
+      </label>
+
+      <select id="payloadList">
+        <option value="">
+          Pilih Payload
+        </option>
+      </select>
+
+    </section>
+
+
+    <!-- =========================================
+         PROXY
+    ========================================== -->
+
+    <section class="box">
+
+      <label for="proxyList">
+        Proxy
+      </label>
+
+      <select id="proxyList">
+        <option value="">
+          Pilih Proxy
+        </option>
+      </select>
+
+    </section>
+
+
+    <!-- =========================================
+         SNI
+    ========================================== -->
+
+    <section class="box">
+
+      <label for="SNIList">
+        SNI
+      </label>
+
+      <select id="SNIList">
+        <option value="">
+          Pilih SNI
+        </option>
+      </select>
+
+    </section>
+
+
+    <!-- =========================================
+         PAYLOAD OUTPUT
+    ========================================== -->
+
+    <section class="output-box">
+
+      <div class="output-header">
+
+        <span>
+          Payload
+        </span>
+
+      </div>
+
+      <textarea
+        id="payloadOutput"
+        readonly
+        placeholder="Payload akan tampil di sini..."
+      >Payload akan tampil di sini</textarea>
+
+      <button
+        type="button"
+        onclick="copyPayload()"
+      >
+        📋 Salin Payload
+      </button>
+
+    </section>
+
+
+    <!-- =========================================
+         PROXY OUTPUT
+    ========================================== -->
+
+    <section class="output-box">
+
+      <div class="output-header">
+
+        <span>
+          Proxy
+        </span>
+
+      </div>
+
+      <textarea
+        id="proxyOutput"
+        readonly
+        placeholder="Proxy akan tampil di sini..."
+      >Proxy akan tampil di sini</textarea>
+
+      <button
+        type="button"
+        onclick="copyProxy()"
+      >
+        📋 Salin Proxy
+      </button>
+
+    </section>
+
+
+    <!-- =========================================
+         SNI OUTPUT
+    ========================================== -->
+
+    <section class="output-box">
+
+      <div class="output-header">
+
+        <span>
+          SNI
+        </span>
+
+      </div>
+
+      <textarea
+        id="SNIOutput"
+        readonly
+        placeholder="SNI akan tampil di sini..."
+      >SNI akan tampil di sini</textarea>
+
+      <button
+        type="button"
+        onclick="copySNI()"
+      >
+        📋 Salin SNI
+      </button>
+
+    </section>
+
+
+    <!-- =========================================
+         ACTION BUTTON
+    ========================================== -->
+
+    <section class="actions">
+
+      <a
+        href="tutorial.html"
+        class="btn-tutorial"
+      >
+        🎥 Lihat Video Tutorial
+      </a>
+
+
+      <a
+        href="https://order.vpn.dinn.my.id"
+        class="btn-ssh-float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🚀 ORDER SSH
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       WHATSAPP FLOATING BUTTON
+  ========================================== -->
+
+  <a
+    href="https://wa.me/6287776581216"
+    class="wa-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Hubungi WhatsApp"
+    title="WhatsApp"
+  >
     💬
   </a>
-  
-  
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
   <footer class="footer">
-    <p>© 2025 Dibuat oleh <b>DIN-STORE</b>. All rights reserved.</p>
+
+    <p>
+      © 2025
+      <strong>DIN-STORE</strong>
+      · All rights reserved.
+    </p>
+
   </footer>
-  
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
   <script src="app.js"></script>
-  
+
 </body>
 
 </html>
